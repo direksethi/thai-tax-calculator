@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/anuphan";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: "Inter Variable", "Anuphan Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-stamp: var(--stamp);
+  --color-stamp-soft: var(--stamp-soft);
+  --color-leaf: var(--leaf);
+  --color-leaf-soft: var(--leaf-soft);
+  --color-rule: var(--rule);
+  --color-graphite: var(--graphite);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/*
+ * The palette comes from a paper tax return: off-white form paper, grey
+ * printed rules, the blue ballpoint a filer writes figures in, and the red
+ * stamp the Revenue Department uses. Ink marks computed figures; stamp marks
+ * tax that is owed; leaf marks money coming back.
+ */
+:root {
+  --paper: oklch(0.982 0.004 95);
+  --sheet: oklch(0.997 0.002 95);
+  --graphite: oklch(0.32 0.01 260);
+  --rule: oklch(0.9 0.006 95);
+  --ink: oklch(0.45 0.16 262);
+  --ink-soft: oklch(0.95 0.025 262);
+  --stamp: oklch(0.53 0.19 25);
+  --stamp-soft: oklch(0.96 0.025 25);
+  --leaf: oklch(0.52 0.12 155);
+  --leaf-soft: oklch(0.96 0.03 155);
+
+  --background: var(--paper);
+  --foreground: oklch(0.2 0.01 260);
+  --card: var(--sheet);
+  --card-foreground: oklch(0.2 0.01 260);
+  --popover: var(--sheet);
+  --popover-foreground: oklch(0.2 0.01 260);
+  --primary: oklch(0.24 0.012 260);
+  --primary-foreground: oklch(0.985 0.003 95);
+  --secondary: oklch(0.955 0.005 95);
+  --secondary-foreground: oklch(0.24 0.012 260);
+  --muted: oklch(0.955 0.005 95);
+  --muted-foreground: oklch(0.5 0.01 260);
+  --accent: oklch(0.95 0.006 95);
+  --accent-foreground: oklch(0.24 0.012 260);
+  --destructive: var(--stamp);
+  --border: var(--rule);
+  --input: oklch(0.88 0.007 95);
+  --ring: oklch(0.62 0.12 262);
+  --chart-1: var(--ink);
+  --chart-2: oklch(0.65 0.1 262);
+  --chart-3: oklch(0.8 0.05 262);
+  --chart-4: oklch(0.7 0.01 260);
+  --chart-5: oklch(0.85 0.005 260);
+  --radius: 0.5rem;
+}
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    color-scheme: light;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :lang(th) {
+    line-height: 1.65;
+  }
+}
+
+@utility num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "cv11" 1;
+}
+
+@utility sheet {
+  background: var(--sheet);
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 0 0 1px oklch(0.2 0.01 260 / 0.06),
+    0 1px 2px -1px oklch(0.2 0.01 260 / 0.06),
+    0 2px 6px oklch(0.2 0.01 260 / 0.03);
+  .dark & {
+    box-shadow: 0 0 0 1px oklch(1 0 0 / 0.08);
+  }
+}
+
+/* The dotted leader between a form line's label and its figure. */
+@utility leader {
+  background-image: radial-gradient(circle, var(--rule) 1px, transparent 1.2px);
+  background-size: 6px 6px;
+  background-position: 0 70%;
+  background-repeat: repeat-x;
+}

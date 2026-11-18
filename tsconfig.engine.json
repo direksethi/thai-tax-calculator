@@ -1,0 +1,19 @@
+{
+  // Type-checks the engine on its own: no DOM, no React, no Vite, no Cloudflare types.
+  // If this passes, src/tax/ can be copied into any TypeScript project.
+  "include": ["src/tax/**/*.ts"],
+  "exclude": ["src/tax/**/*.test.ts"],
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022"],
+    "types": [],
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  }
+}

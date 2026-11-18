@@ -1,0 +1,18 @@
+node_modules
+dist
+dist-ssr
+.output
+.nitro
+.vinxi
+.tanstack
+.wrangler
+__unconfig*
+*.tsbuildinfo
+*.local
+.DS_Store
+
+# Secrets and local configuration. Only the example file is committed.
+.env*
+.dev.vars
+.dev.vars.*
+!.dev.vars.example

@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "thai-tax-calculator",
+  "main": "@tanstack/react-start/server-entry",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true }
+
+  // The calculator needs nothing else. Wrangler deploys to the account you are
+  // logged in to, or to CLOUDFLARE_ACCOUNT_ID if that is set.
+
+  // Optional: serve from your own domain instead of workers.dev.
+  // Add a comma after the line above, then uncomment and edit.
+  // "workers_dev": false,
+  // "routes": [{ "pattern": "tax.example.com", "custom_domain": true }],
+
+  // Optional: sign-in and saved returns. See "Optional: accounts" in README.md.
+  // Create the database with `npx wrangler d1 create thai-tax-calculator` and
+  // paste the id it prints. APP_URL is the public origin of the site and
+  // MAIL_FROM is a sender on a domain verified in your Resend account.
+  // "d1_databases": [
+  //   {
+  //     "binding": "DB",
+  //     "database_name": "thai-tax-calculator",
+  //     "database_id": "<your-d1-database-id>",
+  //     "migrations_dir": "db/migrations"
+  //   }
+  // ],
+  // "vars": {
+  //   "APP_URL": "https://tax.example.com",
+  //   "MAIL_FROM": "Thai Tax Calculator <noreply@example.com>"
+  // }
+}
